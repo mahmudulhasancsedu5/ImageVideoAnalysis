@@ -1,10 +1,15 @@
 import cv2
 import numpy as np
 
-cap=cv2.VideoCapture('Lionel.MKV')
+video_directory="..//resources//video//"
+
+
+cap=cv2.VideoCapture(0)
+
+#cap=cv2.VideoCapture(0) #for web cam
 
 fourcc=cv2.VideoWriter_fourcc(*'XVID')
-out=cv2.VideoWriter('output.MP4',fourcc,20.0,(640,480))
+out=cv2.VideoWriter(video_directory+'output.MP4',fourcc,20.0,(640,480))
 id=1;
 while True:
     ret,frame=cap.read()
@@ -14,7 +19,7 @@ while True:
     cv2.imshow('frame',frame)
     cv2.imshow('gray',gray)
 
-    cv2.imwrite(".//img//img_"+str(id)+".png",frame)
+    #cv2.imwrite("..//resources//img//img_"+str(id)+".png",frame)
     id=id+1
     
     
